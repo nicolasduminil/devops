@@ -13,6 +13,9 @@
 *.iws
 .idea/
 
+# Terraform
+.terraform
+
 .DS_Store/
 /target
 
