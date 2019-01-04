@@ -3,5 +3,5 @@ output "mysql_db_host_name" {
 }
 
 output "mysql_db_port_number" {
-  value = "${aws_db_instance.example.port}"
+  value = "${aws_db_instance.simplex_software.port}"
 }
