@@ -1,5 +1,11 @@
 terraform {
   required_version = ">= 0.11, < 0.12"
+  backend "s3" {
+    bucket  = "simplex-software-s3-bucket"
+    region  = "us-east-1"
+    key     = "dev/data-stores/mysql/terraform.tfstate"
+    encrypt = true
+  }
 }
 
 provider "aws" {

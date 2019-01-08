@@ -1,7 +1,7 @@
-output "mysql_db_host_name" {
+output "address" {
   value = "${aws_db_instance.simplex_software.address}"
 }
 
-output "mysql_db_port_number" {
+output "port" {
   value = "${aws_db_instance.simplex_software.port}"
 }

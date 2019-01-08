@@ -1,14 +1,18 @@
-# MySQL on RDS example (test environment)
+# S3 Remote State Example
 
-This folder contains a [Terraform](https://www.terraform.io/) template that deploy a MySQL database  (using 
-[RDS](https://aws.amazon.com/rds/) in an [Amazon Web Services (AWS) account](http://aws.amazon.com/). 
+This folder contains example [Terraform](https://www.terraform.io/) templates that an [S3](https://aws.amazon.com/s3/)
+bucket in an [Amazon Web Services (AWS) account](http://aws.amazon.com/). The S3 bucket can be used for [remote state
+storage](https://www.terraform.io/docs/state/remote/).
+
+For more info, please see Chapter 3, "How to Manage Terraform State", of 
+*[Terraform: Up and Running](http://www.terraformupandrunning.com)*.
 
 ## Pre-requisites
 
 * You must have [Terraform](https://www.terraform.io/) installed on your computer. 
 * You must have an [Amazon Web Services (AWS) account](http://aws.amazon.com/).
 
-Please note that this code was written for Terraform 0.11.
+Please note that this code was written for Terraform 0.8.x.
 
 ## Quick start
 
@@ -25,16 +29,13 @@ export AWS_ACCESS_KEY_ID=(your access key id)
 export AWS_SECRET_ACCESS_KEY=(your secret access key)
 ```
 
-Configure [remote state storage](https://www.terraform.io/docs/state/remote/) using an [S3](https://aws.amazon.com/s3/) 
-bucket, filling in your bucket name and region where indicated:
+You may want to specify a name for your bucket in `vars.tf` using the `default` parameter:
 
-```
-terraform remote config \
-  -backend=s3 \
-  -backend-config="bucket=(YOUR_BUCKET_NAME)" \
-  -backend-config="key=test/data-stores/mysql/terraform.tfstate" \
-  -backend-config="region=(YOUR_BUCKET_REGION)" \
-  -backend-config="encrypt=true"
+```hcl
+variable "bucket_name" {
+  description = "The name of the S3 bucket. Must be globally unique."
+  default = "(YOUR_BUCKET_NAME)"
+}
 ```
 
 Validate the templates:
