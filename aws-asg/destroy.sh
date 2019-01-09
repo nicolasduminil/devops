@@ -1,6 +1,6 @@
-cd global/s3
+cd dev/services/webserver-cluster
 terraform destroy
-cd ../../dev/data-stores/mysql
+cd ../../data-stores/mysql
 terraform destroy
-cd ../../services/webserver-cluster
+cd ../../../global/s3
 terraform destroy
