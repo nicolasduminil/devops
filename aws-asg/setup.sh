@@ -1,0 +1,9 @@
+cd global/s3
+terraform plan
+terraform apply
+cd ../../dev/data-stores/mysql
+terraform plan
+terraform apply
+cd ../../services/webserver-cluster
+terraform plan
+terraform apply
