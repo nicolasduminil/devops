@@ -19,8 +19,6 @@ data "template_file" "httpd_data" {
     httpd_server_port = "${var.web_server_port}"
     db_host_name = "${data.terraform_remote_state.db.address}"
     db_port_number = "${data.terraform_remote_state.db.port}"
-    //db_host_name = "terraform-20190103174246751500000001.ckhzgawvvdj7.us-east-1.rds.amazonaws.com"
-    //db_port_number = "3306"
   }
 }
 

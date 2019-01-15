@@ -1,0 +1,176 @@
+nicolas@BEL20:~/devops/tf$ terraform plan
+Refreshing Terraform state in-memory prior to plan...
+The refreshed state will be used to calculate this plan, but will not be
+persisted to local or remote state storage.
+
+aws_instance.example: Refreshing state... (ID: i-0f6fc6792bfef344e)
+aws_key_pair.terraform_ec2_key: Refreshing state... (ID: codecommit_rsa)
+
+------------------------------------------------------------------------
+
+An execution plan has been generated and is shown below.
+Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  + aws_instance.simplex_software
+      id:                           <computed>
+      ami:                          "ami-40d28157"
+      arn:                          <computed>
+      associate_public_ip_address:  <computed>
+      availability_zone:            <computed>
+      cpu_core_count:               <computed>
+      cpu_threads_per_core:         <computed>
+      ebs_block_device.#:           <computed>
+      ephemeral_block_device.#:     <computed>
+      get_password_data:            "false"
+      host_id:                      <computed>
+      instance_state:               <computed>
+      instance_type:                "t2.micro"
+      ipv6_address_count:           <computed>
+      ipv6_addresses.#:             <computed>
+      key_name:                     "simplex-software"
+      network_interface.#:          <computed>
+      network_interface_id:         <computed>
+      password_data:                <computed>
+      placement_group:              <computed>
+      primary_network_interface_id: <computed>
+      private_dns:                  <computed>
+      private_ip:                   <computed>
+      public_dns:                   <computed>
+      public_ip:                    <computed>
+      root_block_device.#:          <computed>
+      security_groups.#:            <computed>
+      source_dest_check:            "true"
+      subnet_id:                    <computed>
+      tags.%:                       "1"
+      tags.Name:                    "Simplex Software"
+      tenancy:                      <computed>
+      volume_tags.%:                <computed>
+      vpc_security_group_ids.#:     <computed>
+
+  + aws_key_pair.terraform_ec2_key
+      id:                           <computed>
+      fingerprint:                  <computed>
+      key_name:                     "simplex-software"
+      public_key:                   "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwS8Q38No1VVigKFphcZSvZDd/SsGBYm3EeDCbl5ntwE6vwtxViHthKgbJEpStSZQQx8QTBrepW1A0dwsBrnddlVj5HoCJklnGVj99zQ8IZ2jDTuqKZrGo+g/JNokQGcagkkP5tjEPHG8Csq2+iwEOWjBCE6v0CoAY0N7iRgsPcZlsb3QN6ejvmmHQCD9tjZhpeMufIi4751CQUsS3Jq68Z6VVpRFRLQcC6bgzO9rXmz2UypJSvr8E7Gl6oee/4aQkNCOt7k2cKEBFMeapV5e3IZywCimGil/5XXwjXhbI1p3lxLbED6TcqkvKGqNPQgKj8r8B+ff58DNNdID9NlKH nicolas@BEL20"
+
+
+Plan: 2 to add, 0 to change, 0 to destroy.
+
+------------------------------------------------------------------------
+
+Note: You didn't specify an "-out" parameter to save this plan, so Terraform
+can't guarantee that exactly these actions will be performed if
+"terraform apply" is subsequently run.
+
+nicolas@BEL20:~/devops/tf$ terraform apply
+aws_instance.example: Refreshing state... (ID: i-0f6fc6792bfef344e)
+aws_key_pair.terraform_ec2_key: Refreshing state... (ID: codecommit_rsa)
+
+An execution plan has been generated and is shown below.
+Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  + aws_instance.simplex_software
+      id:                           <computed>
+      ami:                          "ami-40d28157"
+      arn:                          <computed>
+      associate_public_ip_address:  <computed>
+      availability_zone:            <computed>
+      cpu_core_count:               <computed>
+      cpu_threads_per_core:         <computed>
+      ebs_block_device.#:           <computed>
+      ephemeral_block_device.#:     <computed>
+      get_password_data:            "false"
+      host_id:                      <computed>
+      instance_state:               <computed>
+      instance_type:                "t2.micro"
+      ipv6_address_count:           <computed>
+      ipv6_addresses.#:             <computed>
+      key_name:                     "simplex-software"
+      network_interface.#:          <computed>
+      network_interface_id:         <computed>
+      password_data:                <computed>
+      placement_group:              <computed>
+      primary_network_interface_id: <computed>
+      private_dns:                  <computed>
+      private_ip:                   <computed>
+      public_dns:                   <computed>
+      public_ip:                    <computed>
+      root_block_device.#:          <computed>
+      security_groups.#:            <computed>
+      source_dest_check:            "true"
+      subnet_id:                    <computed>
+      tags.%:                       "1"
+      tags.Name:                    "Simplex Software"
+      tenancy:                      <computed>
+      volume_tags.%:                <computed>
+      vpc_security_group_ids.#:     <computed>
+
+  + aws_key_pair.terraform_ec2_key
+      id:                           <computed>
+      fingerprint:                  <computed>
+      key_name:                     "simplex-software"
+      public_key:                   "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwS8Q38No1VVigKFphcZSvZDd/SsGBYm3EeDCbl5ntwE6vwtxViHthKgbJEpStSZQQx8QTBrepW1A0dwsBrnddlVj5HoCJklnGVj99zQ8IZ2jDTuqKZrGo+g/JNokQGcagkkP5tjEPHG8Csq2+iwEOWjBCE6v0CoAY0N7iRgsPcZlsb3QN6ejvmmHQCD9tjZhpeMufIi4751CQUsS3Jq68Z6VVpRFRLQcC6bgzO9rXmz2UypJSvr8E7Gl6oee/4aQkNCOt7k2cKEBFMeapV5e3IZywCimGil/5XXwjXhbI1p3lxLbED6TcqkvKGqNPQgKj8r8B+ff58DNNdID9NlKH nicolas@BEL20"
+
+
+Plan: 2 to add, 0 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+aws_key_pair.terraform_ec2_key: Creating...
+  fingerprint: "" => "<computed>"
+  key_name:    "" => "simplex-software"
+  public_key:  "" => "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwS8Q38No1VVigKFphcZSvZDd/SsGBYm3EeDCbl5ntwE6vwtxViHthKgbJEpStSZQQx8QTBrepW1A0dwsBrnddlVj5HoCJklnGVj99zQ8IZ2jDTuqKZrGo+g/JNokQGcagkkP5tjEPHG8Csq2+iwEOWjBCE6v0CoAY0N7iRgsPcZlsb3QN6ejvmmHQCD9tjZhpeMufIi4751CQUsS3Jq68Z6VVpRFRLQcC6bgzO9rXmz2UypJSvr8E7Gl6oee/4aQkNCOt7k2cKEBFMeapV5e3IZywCimGil/5XXwjXhbI1p3lxLbED6TcqkvKGqNPQgKj8r8B+ff58DNNdID9NlKH nicolas@BEL20"
+aws_instance.simplex_software: Creating...
+  ami:                          "" => "ami-40d28157"
+  arn:                          "" => "<computed>"
+  associate_public_ip_address:  "" => "<computed>"
+  availability_zone:            "" => "<computed>"
+  cpu_core_count:               "" => "<computed>"
+  cpu_threads_per_core:         "" => "<computed>"
+  ebs_block_device.#:           "" => "<computed>"
+  ephemeral_block_device.#:     "" => "<computed>"
+  get_password_data:            "" => "false"
+  host_id:                      "" => "<computed>"
+  instance_state:               "" => "<computed>"
+  instance_type:                "" => "t2.micro"
+  ipv6_address_count:           "" => "<computed>"
+  ipv6_addresses.#:             "" => "<computed>"
+  key_name:                     "" => "simplex-software"
+  network_interface.#:          "" => "<computed>"
+  network_interface_id:         "" => "<computed>"
+  password_data:                "" => "<computed>"
+  placement_group:              "" => "<computed>"
+  primary_network_interface_id: "" => "<computed>"
+  private_dns:                  "" => "<computed>"
+  private_ip:                   "" => "<computed>"
+  public_dns:                   "" => "<computed>"
+  public_ip:                    "" => "<computed>"
+  root_block_device.#:          "" => "<computed>"
+  security_groups.#:            "" => "<computed>"
+  source_dest_check:            "" => "true"
+  subnet_id:                    "" => "<computed>"
+  tags.%:                       "" => "1"
+  tags.Name:                    "" => "Simplex Software"
+  tenancy:                      "" => "<computed>"
+  volume_tags.%:                "" => "<computed>"
+  vpc_security_group_ids.#:     "" => "<computed>"
+aws_key_pair.terraform_ec2_key: Creation complete after 2s (ID: simplex-software)
+aws_instance.simplex_software: Still creating... (10s elapsed)
+aws_instance.simplex_software: Still creating... (20s elapsed)
+aws_instance.simplex_software: Still creating... (30s elapsed)
+aws_instance.simplex_software: Still creating... (40s elapsed)
+aws_instance.simplex_software: Creation complete after 43s (ID: i-01e8701e30d9078a4)
+
+Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
+nicolas@BEL20:~/devops/tf$ 
+
